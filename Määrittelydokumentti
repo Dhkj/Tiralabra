@@ -1,6 +1,6 @@
 - Käytetty ohjelmointikieli: Python
 - Muut hallitut kielet: Java
-- Toteutan työssäni tekoälyn shakin pelaamista varten käyttäen valmiita koodipohjia.
+- Toteutan työssäni tekoälyn shakin pelaamista varten hyödyntäen mahdollisuuksien mukaan valmiita koodipohjia.
 - Ohjeistuksen mukaan hyödynnetään minimax-algoritmia ja alpha-beta-karsintaa, sekä tavoitteena luoda toimiva heurestiikka pelilaudan pelitilanteen arvioimiseksi ja tekoälyn avuksi. 
 - Yksityiskohtainen toteutus koodin tasolla selvitetään seuraavaksi. (Tätä ei ilmeisesti ekaan palautukseen vaadittu.)
 - Tavoitteena luoda toimiva tekoäly, jota vastaan on mielekästä pelata ja joka myös pystyy voittamaan!
