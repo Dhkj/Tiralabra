@@ -1,7 +1,8 @@
 - Käytetty ohjelmointikieli: Python
 - Muut hallitut kielet: Java
-- Toteutan työssäni tekoälyn shakin peluuta varten käyttäen valmiita koodipohjia.
-- Tarkemmat yksityiskohdat ja vaatimukset selvitetään seuraavaksi. (Näitä ei ilmeisesti ekaan palautukseen vaadittu.)
+- Toteutan työssäni tekoälyn shakin pelaamista varten käyttäen valmiita koodipohjia.
+- Ohjeistuksen mukaan hyödynnetään minimax-algoritmia ja alpha-beta-karsintaa, sekä tavoitteena luoda toimiva heurestiikka pelilaudan pelitilanteen arvioimiseksi ja tekoälyn avuksi. 
+- Yksityiskohtainen toteutus koodin tasolla selvitetään seuraavaksi. (Tätä ei ilmeisesti ekaan palautukseen vaadittu.)
 - Opintoohjelma: TKT
 - Koodissa ja koodin kommenteissa käytetty kieli: koodi kirjoitetaan englanniksi.
 - Dokumentaation kieli: suomi
