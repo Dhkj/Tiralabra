@@ -4,6 +4,8 @@
 
 Huom! Valitettavasti badge ei toimi. Ohjelman koodin rivikattavuus tällä hetkellä 98%.
 
+[Rivikattavuus](https://app.codecov.io/gh/Dhkj/Tiralabra)
+
 Testien rivikattavuus voidaan ajaa komennoilla:
 - poetry run coverage run --branch -m pytest src
 - poetry run coverage report -m
