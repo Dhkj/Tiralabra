@@ -8,7 +8,7 @@ Testien rivikattavuus voidaan ajaa komennoilla:
 - poetry run coverage run --branch -m pytest src
 - poetry run coverage report -m
 
-[Määrittelydokumentti](https://github.com/Dhkj/Tiralabra/blob/main/M%C3%A4%C3%A4rittelydokumentti)
+[Määrittelydokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/M%C3%A4%C3%A4rittelydokumentti)
 
 [Viikkoraportti 1](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Viikkoraportti%201)
 
