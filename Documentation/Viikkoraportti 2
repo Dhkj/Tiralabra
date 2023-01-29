@@ -15,7 +15,8 @@ Olen tämän jälkeen jatkanut aihealueen matematiikkaan ja algoritmeihin tutust
 - Valitettavasti saavutettu toiminnallisuus enkryptaamiseen ja dekryptaamiseen jostain syystä hajosi viime metreillä. Aikataulusyistä en ehtinyt tätä korjata ja korjaus ensi viikkoon.
 
 3)
-- Tällä viikolla olen ooppinut runsaasti kohdan (1) asioihin liittyen.
+- Tällä viikolla olen oppinut runsaasti kohdan (1) asioihin liittyen.
+
 4)
 - Epäselvyyksiä tuottaa isojen alkulukujen generointi.
 - Tällä hetkellä isoja alkulukuja ei pysty generoimaan. Tämä ilmeisesti johtuu modulaari eksponentioinnissa hyödynnetystä pythonin valmiista funktiosta, joka ilmeisesti ei toimi isoilla kokonaislukuja ja ylivuodon takia ei tuota oikea tulosta. Tämän seurauksena metodi alkuluvun generointiin ei toimi ja ohjelma jää (kenties ikuiseen) looppiin.
