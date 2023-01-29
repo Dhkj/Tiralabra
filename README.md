@@ -2,7 +2,7 @@
 
 [![workflow](https://github.com/Dhkj/Tiralabra/actions/workflows/main.yml/badge.svg)](https://github.com/Dhkj/Tiralabra/actions)
 
-Huom! Valitettavasti ylläoleva badge ei toimi. Ohjelman koodin rivikattavuus tällä hetkellä 98%.
+Huom! Valitettavasti badge ei toimi. Ohjelman koodin rivikattavuus tällä hetkellä 98%.
 
 Testien rivikattavuus voidaan ajaa komennoilla:
 - poetry run coverage run --branch -m pytest src
