@@ -12,12 +12,15 @@ class RSA_Service:
     # Add getters for self._n, self._e, self._d ?
 
     def encode(self, message):
+        '''Encodes a message.'''
         return pow(message, self._e, self._n)
 
     def decode(self, encoded_message):
+        '''Decodes a message.'''
         return pow(encoded_message, self._d, self._n)
 
     def create_new_rsa_keypair(self):
+        '''Creates a new RSA key pair'''
         #Refactor! Make own method for calculating lambda_n and tests
         #Add verifications that the are really primes, e.g. trying to encrypt/decrypt
         large_prime_number_first = self.generate_large_random_prime_number()
@@ -60,6 +63,7 @@ class RSA_Service:
 
 
     def generate_large_random_prime_number(self):
+        '''Generates a large random prime number.'''
         large_random_prime_number = 0
 
         while True: # Generate a better way to generate odd numbers
@@ -82,9 +86,8 @@ class RSA_Service:
 
 
     def is_prime(self, potentially_prime_integer):
+        '''Checks whether a given integer is a prime number.'''
         #make sure potentially_prime_integer is odd
-        #uniformly_random_integer = random.randint(1, integer - 1)
-        '''1. uniformly random?'''
 
         for i in range(100): # Probability for a false prime is less than (1/2)^100
             uniformly_random_integer = random.randint(1, potentially_prime_integer - 1)
@@ -149,6 +152,7 @@ class RSA_Service:
         return True #toimii?
 
     def jacobi(self, integer_first, integer_second):
+        '''Solves the jacobi symbol for given two primes.'''
         #Source Rsapaper page 9
         #Write out conditions
         if integer_first == 1:
