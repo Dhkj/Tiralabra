@@ -10,6 +10,7 @@ class RSA_Service:
         rsa_keypair = self.create_new_rsa_keypair()
 
     # Add getters for self._n, self._e, self._d ?
+
     def encode(self, message):
         return pow(message, self._e, self._n)
 
@@ -44,12 +45,14 @@ class RSA_Service:
         d = self.greatest_common_divisor(lambda_n, e)[1] #Refactor with the prior step 4
 
         # For testing:
+        '''
         print("n:")
         print(n)
         print("e:")
         print(e)
         print("d:")
         print(d)
+        '''
 
         self._n = n
         self._e = e
@@ -85,44 +88,49 @@ class RSA_Service:
 
         for i in range(100): # Probability for a false prime is less than (1/2)^100
             uniformly_random_integer = random.randint(1, potentially_prime_integer - 1)
-            #is
+            # is uniformly random?
 
+            '''
+            #For testing
             print("uniformly_random_integer:")
             print(uniformly_random_integer)
+            '''
 
-
-
+            #non-tuple
             #x = self.greatest_common_divisor(potentially_prime_integer, uniformly_random_integer)
+ 
             #tuple
             x = self.greatest_common_divisor(potentially_prime_integer, uniformly_random_integer)[0]
 
-
-
+            '''
+            #For testing
             print("gcd:")
             print(x)
+            '''
 
             if x != 1:
                 return False
+
             '''
+            # Alternative implementation:
             if self.greatest_common_divisor(potentially_prime_integer, uniformly_random_integer) != 1:
                 print("gcd:")
                 print(self.greatest_common_divisor(potentially_prime_integer, uniformly_random_integer))
                 return False
             '''
+
             y1 = self.jacobi(uniformly_random_integer, potentially_prime_integer)
-            #y2 = uniformly_random_integer ** ((potentially_prime_integer - 1)/2) % potentially_prime_integer #potenssiinkorotusalg tmv??
 
-            ####poisz1 = int(uniformly_random_integer)
-
-
+            #y2 = uniformly_random_integer ** ((potentially_prime_integer - 1)/2) % potentially_prime_integer #potenssiinkorotusalg tmv?
             y2 = pow(int(uniformly_random_integer), int((potentially_prime_integer - 1)/2), int(potentially_prime_integer))
 
-
+            '''
+            #For testing
             print("jacobi vasen:")
             print(y1)
             print("jacobi oikea:")
             print(y2)
-
+            '''
 
             if (y1 - y2) % potentially_prime_integer != 0: #toimii? jacobi arg toisinpain
                 return False
@@ -140,19 +148,15 @@ class RSA_Service:
             '''
         return True #toimii?
 
-
-
     def jacobi(self, integer_first, integer_second):
-        #Lahde Rsapaper p.9
-        #Lisaa ehdot
+        #Source Rsapaper page 9
+        #Write out conditions
         if integer_first == 1:
             return 1
         elif integer_first % 2 == 0:
             return self.jacobi(integer_first/2, integer_second) * (-1)**((integer_second**2-1)/8)
         else:
-            return self.jacobi(integer_second % integer_first, integer_first) * (-1)**((integer_first-1)*(integer_second-1)/4) #oikein?
-
-
+            return self.jacobi(integer_second % integer_first, integer_first) * (-1)**((integer_first-1)*(integer_second-1)/4) #Correct?
 
     def greatest_common_divisor(self, integer_first, integer_second, coefficient_a=-1, coefficient_b=0):
         '''Implements the extended Euclid's algorithm and returns a tuple with: [0]'the greatest common divisor' and [1]'the modular multiplicative inverse of ??? '''
