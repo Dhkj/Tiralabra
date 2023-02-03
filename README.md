@@ -7,6 +7,8 @@
 
 [Määrittelydokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/M%C3%A4%C3%A4rittelydokumentti)
 
+[Testausdokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Testausdokumentti.md)
+
 [Viikkoraportti 1](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Viikkoraportti%201)
 
 [Viikkoraportti 2](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Viikkoraportti%202)
