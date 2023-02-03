@@ -2,113 +2,186 @@ import random
 
 class RSA_Service:
     def __init__(self):
+        self._encryption_alphabet = {'a': '01',
+            'b': '02',
+            'c': '03',
+            'd': '04',
+            'e': '05',
+            'f': '06',
+            'g': '07',
+            'h': '08',
+            'i': '09',
+            'j': '10',
+            'k': '11',
+            'l': '12',
+            'm': '13',
+            'n': '14',
+            'o': '15',
+            'p': '16',
+            'q': '17',
+            'r': '18',
+            's': '19',
+            't': '20',
+            'u': '21',
+            'v': '22',
+            'w': '23',
+            'x': '24',
+            'y': '25',
+            'z': '26',
+            ' ': '32'}
+
+        self._decryption_alphabet = {n: c for c, n in self._encryption_alphabet.items()}
+
         self._n = 0
         self._e = 0
         self._d = 0
+
         self.create_new_rsa_keypair()
 
-    def encode(self, message):
-        '''Encodes a message.'''
-        return pow(message, self._e, self._n)
+    def encrypt_message(self, message):
+        '''Encrypts a message.'''
+        list_of_words_in_the_message = message.lower().split()
+        encrypted_message_word_list = []
 
-    def decode(self, encoded_message):
-        '''Decodes a message.'''
-        return pow(encoded_message, self._d, self._n)
+        for word in list_of_words_in_the_message:
+            characters_in_the_word = [character for character in word]
+
+            encrypted_characters = [self.encrypt_character(self._encryption_alphabet[character], self._n, self._e) for character in characters_in_the_word]
+            
+            encrypted_word = " ".join(encrypted_characters)
+            
+            encrypted_message_word_list.append(encrypted_word)
+
+        encrypted_message = f" {self.encrypt_character(self._encryption_alphabet[' '], self._n, self._e)} ".join(encrypted_message_word_list)
+
+        return encrypted_message
+
+    def decrypt_message(self, message):
+        '''Decrypts a message.'''
+        list_of_characters_in_the_encrypted_message = message.split()
+
+        list_of_decrypted_integer_characters = []
+
+        list_of_characters_in_decrypted_message = []
+
+        for character in list_of_characters_in_the_encrypted_message:
+            list_of_decrypted_integer_characters.append(self.decrypt_character(character, self._n, self._d))
+
+        for character in list_of_decrypted_integer_characters:
+            list_of_characters_in_decrypted_message.append(self._decryption_alphabet[character])
+
+        decrypted_message = "".join(list_of_characters_in_decrypted_message)
+
+        return decrypted_message
+
+    def encrypt_character(self, char, n, e):
+        '''Encrypts a character.'''
+        return str(pow(int(char), e, n)).zfill(2)
+
+    def decrypt_character(self, char, n, d):
+        '''Decrypts a character.'''
+        return str(pow(int(char), d, n)).zfill(2)
 
     def create_new_rsa_keypair(self):
         '''Creates a new RSA key pair'''
-        large_prime_number_first = self.generate_large_random_prime_number()
-        large_prime_number_second = self.generate_large_random_prime_number()
+        large_prime_number_first = self.generate_potentially_large_random_prime_number()
+        large_prime_number_second = self.generate_potentially_large_random_prime_number()
       
-        n = large_prime_number_first * large_prime_number_second #Multiplication ok?
+        n = large_prime_number_first * large_prime_number_second
+        lambda_n = self.lambda_n(large_prime_number_first, large_prime_number_second)
 
-        #Carmichael's totient function:
-        lambda_n = abs((large_prime_number_first - 1)*(large_prime_number_second - 1)) / self.greatest_common_divisor(large_prime_number_first - 1, large_prime_number_second - 1)[0] # Implementation ok?
-
-        #Step 4:
-        #for small rand:
-        e = 3
         #for large:
         #e = 2**16 + 1
+        e = 3
 
-        #e > 2:
-        if e >= lambda_n or self.greatest_common_divisor(e, lambda_n)[0] != 1:
-            print("Error in the value of e.")
+        #Only works for small e: ?
+        for i in range(3, lambda_n):
+            if self.extended_euclidean_algorithm(i, lambda_n)[0] == 1:
+                e = i
+                break
+        
+        '''For large values of e, not currently in use:
+        while True:
+            if e >= lambda_n or self.greatest_common_divisor(e, lambda_n)[0] != 1:
+                e -= 2
+            else:
+                break
+        '''
+        d = self.extended_euclidean_algorithm(lambda_n, e)[2]
 
-        #Step 5:
-        d = self.greatest_common_divisor(lambda_n, e)[1] #Refactor with the prior step 4
+        if d < 0:
+            d = lambda_n + d
 
         self._n = n
         self._e = e
         self._d = d
+    
+    def lambda_n(self, a, b):
+        '''Carmichael's totient function.'''
+        return self.lcm(a-1,b-1)
+        
+    def lcm(self, a, b):
+        '''Least common multiple.'''
+        return int(abs(a*b)/self.extended_euclidean_algorithm(a, b)[0])
 
-
-    def generate_large_random_prime_number(self):
+    def generate_potentially_large_random_prime_number(self):
         '''Generates a large random prime number.'''
-        large_random_prime_number = 0
+        #large_random_integer = random.randint(2**511, 2**512 - 1)       
+        large_random_integer = random.randint(100, 200)
+
+        if large_random_integer % 2 == 0:
+            large_random_integer += 1
 
         while True:
-            #For large primes:
-            #large_random_prime_number = random.randint(10**99, 10**100 - 1)
+            if self.miller_rabin(large_random_integer, 40):
+                large_random_potential_prime_number = large_random_integer
+                # Add further tests for primality, e.g. that the encoding/decoding works?
+                return large_random_potential_prime_number
+            else:
+                large_random_integer += 2
 
-            #Currently using a small prime:
-            large_random_prime_number = random.randint(100, 200)
-            
-            #Larger prime:
-            #large_random_prime_number = random.randint(100000000, 200000000)
+    def miller_rabin(self, n, k):
+        '''Miller-Rabin Primality Test.'''
+        if n == 2 or n == 3:
+            return True
 
-            if large_random_prime_number % 2 == 0:
+        if n % 2 == 0:
+            return False
+
+        r, s = 0, n - 1
+        while s % 2 == 0:
+            r += 1
+            s //= 2
+        for _ in range(k):
+            a = random.randrange(2, n - 1)
+            x = pow(a, s, n)
+            if x == 1 or x == n - 1:
                 continue
-                # Change to generate only odd numbers
-                # Change to match the desired key length
-
-            if self.is_prime(large_random_prime_number):
-                return large_random_prime_number
-
-
-    def is_prime(self, potentially_prime_integer):
-        '''Checks whether a given integer is a prime number.'''
-        #make sure potentially_prime_integer is odd
-
-        for i in range(100): # Probability for a false prime is less than (1/2)^100
-            uniformly_random_integer = random.randint(1, potentially_prime_integer - 1)
-            # is uniformly random?
-
-            x = self.greatest_common_divisor(potentially_prime_integer, uniformly_random_integer)[0]
-
-            if x != 1:
+            for _ in range(r - 1):
+                x = pow(x, 2, n)
+                if x == n - 1:
+                    break
+            else:
                 return False
-
-            y1 = self.jacobi(uniformly_random_integer, potentially_prime_integer)
-            y2 = pow(int(uniformly_random_integer), int((potentially_prime_integer - 1)/2), int(potentially_prime_integer))
-
-            if (y1 - y2) % potentially_prime_integer != 0:
-                return False
-        
         return True
 
-    def jacobi(self, integer_first, integer_second):
-        '''Solves the jacobi symbol for given two primes.'''
-        #Source Rsapaper page 9
-        #Write out conditions
-        if integer_first == 1:
-            return 1
-        elif integer_first % 2 == 0:
-            return self.jacobi(integer_first/2, integer_second) * (-1)**((integer_second**2-1)/8)
-        else:
-            return self.jacobi(integer_second % integer_first, integer_first) * (-1)**((integer_first-1)*(integer_second-1)/4)
+    def extended_euclidean_algorithm(self, a, b, s0=1, s1=0, t0=0, t1=1):
+        '''The extended Euclidean algorithm. Returns a tuple with: [0]'the greatest common divisor' and [2]'the modular multiplicative inverse of the second parameter b.'''
+        q = int(a / b)
+        r = a - q * b
 
-    def greatest_common_divisor(self, integer_first, integer_second, coefficient_a=-1, coefficient_b=0):
-        '''Implements the extended Euclid's algorithm and returns a tuple with: [0]'the greatest common divisor' and [1]'the modular multiplicative inverse of ??? '''
-        # Refactor/rename for the modular multiplicative inverse
+        if r == 0:
+            return (b, s1, t1)
 
-        next_integer = integer_first % integer_second
+        a = b
+        b = r
 
-        coefficient_a *= -1
-        old_coefficient_b = coefficient_b
-        coefficient_b = coefficient_a * coefficient_b - coefficient_a * (int) (integer_first / integer_second)
+        s2 = s0 - q*s1
+        s0 = s1
+        s1 = s2
 
-        if (next_integer == 0):
-            return (integer_second, old_coefficient_b)
-        else:
-            return self.greatest_common_divisor(integer_second, next_integer, coefficient_a, coefficient_b)
+        t2 = t0 - q*t1
+        t0 = t1
+        t1 = t2
+
+        return self.extended_euclidean_algorithm(a, b, s0, s1, t0, t1)
