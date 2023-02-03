@@ -24,3 +24,9 @@ Ohjelman haarautumakattavuus voidaan testata komennolla:
 Ohjelman testikattavuusraportti voidaan luoda komennolla:
 
 ```poetry run coverage report -m```
+
+## Koodin laadun seuranta
+
+Ohjelman laatutarkastukset voidaan suorittaa komennolla:
+
+```poetry run pylint src```
