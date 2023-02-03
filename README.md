@@ -6,7 +6,7 @@
 ## Dokumentaatio
 ### Ohjelman dokumentaatio:
 
-[Määrittelydokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/M%C3%A4%C3%A4rittelydokumentti)
+[Määrittelydokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/M%C3%A4%C3%A4rittelydokumentti.md)
 
 [Toteutusdokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Toteutusdokumentti.md)
 
