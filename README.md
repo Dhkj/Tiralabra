@@ -1,6 +1,7 @@
 # Tiralabra
 
 [![workflow](https://github.com/Dhkj/Tiralabra/actions/workflows/main.yml/badge.svg)](https://github.com/Dhkj/Tiralabra/actions)
+[[!codecov](https://app.codecov.io/gh/Dhkj/Tiralabra/branch/main/graph/badge.svg?token=GGQ60FH4C3)](https://app.codecov.io/gh/Dhkj/Tiralabra)
 
 Huom! Valitettavasti badge ei toimi. Ohjelman koodin rivikattavuus tällä hetkellä 98%.
 
