@@ -4,12 +4,15 @@
 [![codecov](https://codecov.io/gh/Dhkj/Tiralabra/branch/main/graph/badge.svg?token=GGQ60FH4C3)](https://codecov.io/gh/Dhkj/Tiralabra)
 
 ## Dokumentaatio
+### Ohjelman dokumentaatio:
 
 [Määrittelydokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/M%C3%A4%C3%A4rittelydokumentti)
 
 [Toteutusdokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Toteutusdokumentti.md)
 
 [Testausdokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Testausdokumentti.md)
+
+### Viikkoraportit:
 
 [Viikkoraportti 1](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Viikkoraportti%201)
 
