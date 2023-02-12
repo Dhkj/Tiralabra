@@ -8,8 +8,8 @@
 
 - Testattu kauttaaltaan jokaista ohjelman sovelluslogiikan metodia useilla sekä hylkäyksen että hyväksynnän antavilla syötteillä.
 - Kutakin metodia ja testitapausta testattu useilla eri ja eri suuruisilla syötteillä.
-- Lisäksi testattu käytetyn aakkoston enkryptaus/dekryptaus kokonaisuudessaan.
-- Testattu myös sadan satunnaisesti generoidun syötteen enkryptauksen/dekryptauksen toimivuus.
+- Lisäksi testattu 1000 unicode-merkin enkryptaus/dekryptaus.
+- Testattu myös sadan satunnaisesti generoidun kymmenen merkin merkkijonon enkryptauksen/dekryptauksen toimivuus.
 
 ## Testien ajaminen
 
