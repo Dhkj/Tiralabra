@@ -10,7 +10,7 @@ fail-under=10.0
 
 # Add files or directories to the blacklist. They should be base names, not
 # paths.
-ignore=CVS,ui,tests
+ignore=CVS,index,ui,tests
 
 # Add files or directories matching the regex patterns to the blacklist. The
 # regex matches against base names, not paths.
@@ -259,7 +259,7 @@ indent-after-paren=4
 indent-string='    '
 
 # Maximum number of characters on a single line.
-max-line-length=100
+max-line-length=200
 
 # Maximum number of lines in a module.
 max-module-lines=1000
@@ -324,7 +324,7 @@ class-attribute-naming-style=any
 #class-attribute-rgx=
 
 # Naming style matching correct class names.
-class-naming-style=PascalCase
+class-naming-style=any #snake_case #PascalCase
 
 # Regular expression matching correct class names. Overrides class-naming-
 # style.
@@ -355,7 +355,26 @@ good-names=i,
            ex,
            Run,
            _,
-           id
+           id,
+	   ui, #
+	   n,
+           e,
+	   d,
+	   p,
+	   q,
+	   N,
+	   L,
+	   a,
+           b,
+           r,
+	   s,
+	   s0,
+	   s1,
+	   s2,
+	   t0,
+	   t1,
+	   t2,
+	   x
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted

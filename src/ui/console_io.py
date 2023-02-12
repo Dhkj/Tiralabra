@@ -4,3 +4,4 @@ class Console_IO:
 
     def print(self, string):
         print(string)
+        
