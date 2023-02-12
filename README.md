@@ -20,6 +20,8 @@
 
 [Viikkoraportti 3](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Viikkoraportti%203.md)
 
+[Viikkoraportti 4](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Viikkoraportti%204.md)
+
 ## Käyttöohje
 ### Asennus
 
