@@ -26,10 +26,10 @@ class TestMessage_Service(unittest.TestCase):
         key = self.rsa_service.get_rsa_key()
         
         for _ in range(100):
-            message = chr(random.randint(1000, 1000))
+            message = chr(random.randint(100, 1000))
 
             for _ in range(9):
-                character = chr(random.randint(1000, 1000))
+                character = chr(random.randint(100, 1000))
                 message += character
 
             encrypted_message = self.message_service.encrypt_message(message, key)
