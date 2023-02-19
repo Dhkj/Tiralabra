@@ -29,6 +29,7 @@ class UI:
                 self._console_io.print("Invalid input command. Please retype a valid input command!")
 
     def create_new_rsa_key_pair(self):
+        '''Creates and prints a new key pair.'''
         self._rsa_service.set_new_rsa_keypair()        
         key = self._rsa_service.get_rsa_key()
         n, e, d = key[0], key[1], key[2]
@@ -38,6 +39,7 @@ class UI:
         self._console_io.print(d)
 
     def encrypt_message(self):
+        '''Encrypts a given input message and prints the encrypted message.'''
         input_message = self._console_io.read("Input message:")
         key = self._rsa_service.get_rsa_key()
         encrypted_message = self._message_service.encrypt_message(input_message, key)
@@ -45,6 +47,7 @@ class UI:
         self._console_io.print(encrypted_message)
 
     def decrypt_message(self):
+        '''Decrypts a given input message and prints the decrypted message.'''
         encrypted_input_message = self._console_io.read("Input an encrypted message:")
         key = self._rsa_service.get_rsa_key()
         decrypted_message = self._message_service.decrypt_message(encrypted_input_message, key)

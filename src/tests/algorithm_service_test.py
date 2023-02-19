@@ -19,6 +19,25 @@ class TestAlgorithm_Service(unittest.TestCase):
         greatest_common_divisor_of_103_and_31 = self.algorithm_service.extended_euclidean_algorithm(40, 21)[0]
         self.assertEqual(greatest_common_divisor_of_103_and_31, 1)
 
+    '''Tests for the greatest common divisor using known large Mersenne prime numbers:'''
+    def test_greatest_common_divisor_of_two_large_mersenne_primes_is_1_first(self):
+        mersenne_prime_1 = pow(2, 521) - 1
+        mersenne_prime_2 = pow(2, 607) - 1
+        greatest_common_divisor = self.algorithm_service.extended_euclidean_algorithm(mersenne_prime_1, mersenne_prime_2)[0]
+        self.assertEqual(greatest_common_divisor, 1)
+
+    def test_greatest_common_divisor_of_two_large_mersenne_primes_is_1_second(self):
+        mersenne_prime_1 = pow(2, 1279) - 1
+        mersenne_prime_2 = pow(2, 607) - 1
+        greatest_common_divisor = self.algorithm_service.extended_euclidean_algorithm(mersenne_prime_1, mersenne_prime_2)[0]
+        self.assertEqual(greatest_common_divisor, 1)
+
+    def test_greatest_common_divisor_of_two_large_mersenne_primes_is_1_third(self):
+        mersenne_prime_1 = pow(2, 521) - 1
+        mersenne_prime_2 = pow(2, 1279) - 1
+        greatest_common_divisor = self.algorithm_service.extended_euclidean_algorithm(mersenne_prime_1, mersenne_prime_2)[0]
+        self.assertEqual(greatest_common_divisor, 1)
+
     ### Add more tests for greatest_common_divisor with greater values.
 
     '''Tests for the modular multiplicative inverse:'''
@@ -41,7 +60,39 @@ class TestAlgorithm_Service(unittest.TestCase):
     def test_163_is_prime_returns_True(self):
         self.assertTrue(self.algorithm_service.miller_rabin(163, 40))
 
-    ### Add more tests for greater values.
+    def test_7741_is_prime_returns_True(self):
+        self.assertTrue(self.algorithm_service.miller_rabin(7741, 40))
+
+    def test_7817_is_prime_returns_True(self):
+        self.assertTrue(self.algorithm_service.miller_rabin(7817, 40))
+
+    '''###Tests for testing primality using known large Mersenne prime numbers:'''
+    def test_the_product_of_two_large_mersenne_prime_numbers_is_prime_returns_False_1(self):
+        mersenne_prime_1 = pow(2, 521) - 1
+        mersenne_prime_2 = pow(2, 607) - 1
+        self.assertFalse(self.algorithm_service.miller_rabin(mersenne_prime_1 * mersenne_prime_2, 40))
+
+    def test_the_product_of_two_large_mersenne_prime_numbers_is_prime_returns_False_2(self):
+        mersenne_prime_1 = pow(2, 1279) - 1
+        mersenne_prime_2 = pow(2, 607) - 1
+        self.assertFalse(self.algorithm_service.miller_rabin(mersenne_prime_1 * mersenne_prime_2, 40))
+
+    def test_the_product_of_two_large_mersenne_prime_numbers_is_prime_returns_False_3(self):
+        mersenne_prime_1 = pow(2, 2203) - 1
+        mersenne_prime_2 = pow(2, 2281) - 1
+        self.assertFalse(self.algorithm_service.miller_rabin(mersenne_prime_1 * mersenne_prime_2, 40))
+
+    def test_a_large_mersenne_prime_numbers_is_prime_returns_True_1(self):
+        mersenne_prime = pow(2, 2203) - 1
+        self.assertTrue(self.algorithm_service.miller_rabin(mersenne_prime, 40))
+    
+    def test_a_large_mersenne_prime_numbers_is_prime_returns_True_2(self):
+        mersenne_prime = pow(2, 2281) - 1
+        self.assertTrue(self.algorithm_service.miller_rabin(mersenne_prime, 40))
+
+    def test_a_large_mersenne_prime_numbers_is_prime_returns_True_2(self):
+        mersenne_prime = pow(2, 1279) - 1
+        self.assertTrue(self.algorithm_service.miller_rabin(mersenne_prime, 40))
 
     '''Tests for generating a large prime number:'''
         # The implementation of the method is dependent on method miller_rabin(() and therefore does not test properly.
@@ -51,5 +102,4 @@ class TestAlgorithm_Service(unittest.TestCase):
             large_random_prime_number = self.algorithm_service.generate_potentially_large_random_prime_number()
             self.assertTrue(self.algorithm_service.miller_rabin(large_random_prime_number, 40))
 
-    '''Tests for generating a large prime number:'''
         # To do

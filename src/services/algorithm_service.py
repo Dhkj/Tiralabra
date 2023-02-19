@@ -3,7 +3,7 @@ import random
 class Algorithm_Service:
     '''Class for the algorithms.'''
     def generate_potentially_large_random_prime_number(self):
-        '''Generates a large random potentially prime number.'''
+        '''Generates and returns a large random potentially prime number.'''
         large_random_integer = random.randint(2**511, 2**512 - 1)
 
         if large_random_integer % 2 == 0:

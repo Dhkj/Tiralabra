@@ -29,16 +29,16 @@ class Message_Service:
 
         list_of_encrypted_characters_in_the_encrypted_message = message.split(encrypted_space_character_in_encryption)
         list_of_decrypted_unicode_integers_in_the_message = [self.decrypt_character(encrypted_character, n, d) for encrypted_character in list_of_encrypted_characters_in_the_encrypted_message]
-        list_of_decrypted_characters_in_the_message = [chr(int(decrypted_unicode_integer)) for decrypted_unicode_integer in list_of_decrypted_unicode_integers_in_the_message]
+        list_of_decrypted_characters_in_the_message = [chr(decrypted_unicode_integer) for decrypted_unicode_integer in list_of_decrypted_unicode_integers_in_the_message]
 
         decrypted_message = "".join(list_of_decrypted_characters_in_the_message)
 
         return decrypted_message
 
     def encrypt_character(self, char, n, e):
-        '''Encrypts a character.'''
+        '''Encrypts a character. Returns a string containing the encrypted character.'''
         return str(pow(int(char), e, n))
 
     def decrypt_character(self, char, n, d):
-        '''Decrypts a character.'''
-        return str(pow(int(char), d, n))
+        '''Decrypts a character. Returns an integer of the unicode integer value of the decrypted character.'''
+        return pow(int(char), d, n)
