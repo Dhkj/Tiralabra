@@ -19,7 +19,7 @@ class TestMessage_Service(unittest.TestCase):
             encrypted_character = self.message_service.encrypt_character(str(i), n, e)
             decrypted_character = self.message_service.decrypt_character(encrypted_character, n, d)
 
-            self.assertEqual(decrypted_character, str(i))
+            self.assertEqual(decrypted_character, i)
 
     '''Creates a new key pair and tests encryption and decryption for 100 random strings with length of 10 unicode characters.'''
     def test_encrypting_and_decrypting_a_message_function_properly_for_a_generated_rsa_keypair(self):
@@ -36,3 +36,29 @@ class TestMessage_Service(unittest.TestCase):
             decrypted_message = self.message_service.decrypt_message(encrypted_message, key)
 
             self.assertEqual(decrypted_message, message)
+
+    '''Creates a random new key pair and tests encryption and decryption for 100 random strings of length 40 characters (unicode binary length less than 1024 bits).'''
+    def test_encrypting_and_decrypting_a_40_character_message_function_properly_for_a_generated_rsa_keypair(self):
+        key = self.rsa_service.get_rsa_key()
+
+        n = key[0]
+        e = key[1]
+        d = key[2]
+        
+        for _ in range(100):
+            message = ""
+
+            for _ in range(38):
+                random_unicode_int = random.randint(100, 1000)
+                random_unicode_int_as_binary_string = bin(random_unicode_int)
+                random_unicode_binary_string = random_unicode_int_as_binary_string.split("b")[1].zfill(24)
+
+                message += random_unicode_binary_string
+
+            message_as_integer_base_10 = int(message, base=2)
+            message_as_integer_base_10_string = str(message_as_integer_base_10)
+
+            encrypted_message = self.message_service.encrypt_character(message_as_integer_base_10_string, n, e)
+            decrypted_message = self.message_service.decrypt_character(encrypted_message, n, d)
+
+            self.assertEqual(decrypted_message, message_as_integer_base_10)
