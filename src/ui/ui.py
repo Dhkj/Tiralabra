@@ -18,7 +18,7 @@ class UI:
             input_command = self._console_io.read("Input command: ")
 
             if input_command == "0":
-                self.create_new_rsa_key_pair()
+                self.create_new_rsa_key_pair()            
             elif input_command == "1":
                 self.encrypt_message()
             elif input_command == "2":

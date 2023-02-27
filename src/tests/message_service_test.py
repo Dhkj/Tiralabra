@@ -62,3 +62,32 @@ class TestMessage_Service(unittest.TestCase):
             decrypted_message = self.message_service.decrypt_character(encrypted_message, n, d)
 
             self.assertEqual(decrypted_message, message_as_integer_base_10)
+
+    
+    '''Creates a random new key pair and tests encryption and decryption for 100 random strings of length 400 characters (unicode binary length more than 1024 bits).'''
+    '''
+    def test_encrypting_and_decrypting_a_400_character_message_function_properly_for_a_generated_rsa_keypair(self):
+        key = self.rsa_service.get_rsa_key()
+        
+        #n = key[0]
+        #e = key[1]
+        #d = key[2]
+        
+        for _ in range(100):
+            message = ""
+
+            for _ in range(400):
+                while True:
+                    random_unicode_int = random.randint(100, 1000)
+                    random_unicode_char = chr(random_unicode_int)
+                    if random_unicode_char != '':
+                        message += random_unicode_char #str muunn?
+                        break
+
+            print(message) ###
+
+            encrypted_message = self.message_service.encrypt_message(message, key)
+            decrypted_message = self.message_service.decrypt_message(encrypted_message)
+
+            self.assertEqual(decrypted_message, message)
+    '''
