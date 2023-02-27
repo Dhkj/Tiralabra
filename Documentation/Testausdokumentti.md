@@ -9,6 +9,7 @@
 - Testattu kauttaaltaan jokaista ohjelman sovelluslogiikan metodia useilla sekä hylkäyksen että hyväksynnän antavilla syötteillä.
 - Kutakin metodia ja testitapausta testattu useilla eri ja eri suuruisilla syötteillä.
 - Testattu ohjelmaa kauttaaltaan sen kokoisilla luvuilla, joilla sovelluksessa operoidaan (500 - 4500 bittiä).
+- Käytetty testauksessa Mersennen alkulukuja sekä suuria tunnettuja alkulukuja välillä 300 - 1000 desimaalia.
 - Lisäksi testattu 1000 unicode-merkin enkryptaus/dekryptaus.
 - Testattu myös sadan satunnaisesti generoidun kymmenen merkin merkkijonon enkryptauksen/dekryptauksen toimivuus.
 - Testattu salaus ja purku satunnaisilla täysimittaisilla merkkijonoilla (alle 1024 bittiä = 40 Unicode-merkkiä).
