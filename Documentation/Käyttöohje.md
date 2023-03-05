@@ -22,7 +22,7 @@ Ohjelman valikosta käyttäjä voi valita:
 0) Uuden 1024-bittisen RSA-avainparin generointi.
    - Ohjelma tulostaa generoidun avainparin: julkinen avain (n,e) + yksityinen avain (d).
 1) Käyttäjän viestin enkryptaus. (Maksimipituus 40 merkkiä.)
-   - Käyttäjä voi kirjoittaa syötteen.
+   - Käyttäjä voi kirjoittaa unicode-merkistön syötteen.
    - Ohjelma tulostaa enkryptatun käyttäjän syötteen.
 2) Enkryptatun viestin dekryptaus.
    - Käyttäjä voi syöttää enkryptatun viestin (= suuri kokonaisluku).
