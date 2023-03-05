@@ -12,7 +12,6 @@ class Algorithm_Service:
         while True:
             if self.miller_rabin(large_random_integer, 40):
                 large_random_potential_prime_number = large_random_integer
-                # Add further tests for primality, e.g. that the encoding/decoding works?
                 return large_random_potential_prime_number
 
             large_random_integer += 2

@@ -1,5 +1,4 @@
 import unittest
-import random
 from services.algorithm_service import Algorithm_Service
 from services.message_service import Message_Service
 from services.rsa_service import RSA_Service

@@ -1,5 +1,4 @@
 import unittest
-import random
 from services.algorithm_service import Algorithm_Service
 
 class TestAlgorithm_Service(unittest.TestCase):
@@ -150,5 +149,3 @@ class TestAlgorithm_Service(unittest.TestCase):
         for i in range(20):
             large_random_prime_number = self.algorithm_service.generate_potentially_large_random_prime_number()
             self.assertTrue(self.algorithm_service.miller_rabin(large_random_prime_number, 40))
-
-        # To do
