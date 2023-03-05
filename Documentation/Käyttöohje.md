@@ -53,7 +53,7 @@ Ohjelman testit voidaan suorittaa komennolla:
 
 Ohjelman haarautumakattavuus voidaan testata komennolla:
 
-```poetry run coverage run -branch -m pytest src```
+```poetry run coverage run --branch -m pytest src```
 
 Ohjelman testikattavuusraportti voidaan luoda komennolla:
 
