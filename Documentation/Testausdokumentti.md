@@ -13,12 +13,21 @@
 - Lisäksi testattu 1000 unicode-merkin enkryptaus/dekryptaus.
 - Testattu myös sadan satunnaisesti generoidun kymmenen merkin merkkijonon enkryptauksen/dekryptauksen toimivuus.
 - Testattu salaus ja purku satunnaisilla täysimittaisilla merkkijonoilla (alle 1024 bittiä = 40 Unicode-merkkiä).
+- Testattu salaus ja purku sadalla satunnaisella täysimittaisella merkkijonolla käyttäen kahta eri testiä ja testaustapaa.
+- Testattu salaus ja purku käyttäen sataa satunnaisesti generoitua avainparia ja testattu kutakin avainparia sadalla satunnaisella täysimittaisella merkkijonolla.
+
+## Suorituskykytestit
+
+- Testattu salaus ja purku käyttäen sataa satunnaisesti generoitua avainparia ja testattu kutakin avainparia sadalla satunnaisella täysimittaisella merkkijonolla.
+- Yhteensä sadan avainparin generointi ja 100*100 = 10 000 täysimittaisen merkkijonon testi.
+- Kokonaissuoritusaika noin 65 - 70s.
+- Yhden täysimittaisen merkkijonon enkryptaukseen/dekryptaukseen kuluva aika: 6,5 - 7,0ms (sisältäen osittain avaimen generoinnin).
 
 ## Testien ajaminen
 
 Ohjelman testit voidaan suorittaa komennolla:
 
-```poetry run pytest src/index.py```
+```poetry run pytest src```
 
 Ohjelman haarautumakattavuus voidaan testata komennolla:
 
