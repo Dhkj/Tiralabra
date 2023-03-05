@@ -41,7 +41,6 @@ I) RSA-avainparin generointi (Lähde 1):
   10. d ← modinv(e, L)
   11. return (N, e, d)
 
-
 II) Satunnaisten alkulukujen generoiminen hyödyntää Miller-Rabinin algoritmia satunnaisten lukujen alkulukuisuuden testaamiseen. (Lähde 2)
 
 III) Modulaarisen tulon käänteisluvun määrittämiseen on hyödynnetty laajennettua Euklideen algoritmia.
@@ -54,5 +53,6 @@ III) Modulaarisen tulon käänteisluvun määrittämiseen on hyödynnetty laajen
 #### (Lähde 2:) Miller-Rabin primality test algorithm
 ```https://gist.github.com/Ayrx/5884790```
 
-
-
+#### (Lähde 3:) Testauksessa käytettyjä tunnettuja alkulukuja
+```https://primes.utm.edu/lists/small/small3.html#300```
+```https://primes.utm.edu/curios/index.php?start=301&stop=1000```
