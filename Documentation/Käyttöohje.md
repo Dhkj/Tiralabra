@@ -43,6 +43,10 @@ Ohjelman valikosta käyttäjä voi valita:
 
 ## Testaus
 
+Ohjelman testit löytyvät hakemistosta:
+
+```src/tests```
+
 Ohjelman testit voidaan suorittaa komennolla:
 
 ```poetry run pytest src```
