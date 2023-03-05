@@ -42,3 +42,9 @@ Ohjelman testikattavuusraportti voidaan luoda komennolla:
 Ohjelman laatutarkastukset voidaan suorittaa komennolla:
 
 ```poetry run pylint src```
+
+## Lähteet
+
+Testauksessa käytettyjä tunnettuja alkulukuja
+```https://primes.utm.edu/lists/small/small3.html#300```
+```https://primes.utm.edu/curios/index.php?start=301&stop=1000```
