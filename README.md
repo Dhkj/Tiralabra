@@ -12,6 +12,8 @@
 
 [Testausdokumentti](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Testausdokumentti.md)
 
+[Käyttöohje](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/K%C3%A4ytt%C3%B6ohje.md)
+
 ### Viikkoraportit:
 
 [Viikkoraportti 1](https://github.com/Dhkj/Tiralabra/blob/main/Documentation/Viikkoraportti%201.md)
@@ -45,11 +47,11 @@ tai
 
 Ohjelman testit voidaan suorittaa komennolla:
 
-```poetry run pytest src/index.py```
+```poetry run pytest src```
 
 Ohjelman haarautumakattavuus voidaan testata komennolla:
 
-```poetry run coverage run -branch -m pytest src```
+```poetry run coverage run --branch -m pytest src```
 
 Ohjelman testikattavuusraportti voidaan luoda komennolla:
 

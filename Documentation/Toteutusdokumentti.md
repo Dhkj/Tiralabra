@@ -24,6 +24,14 @@
 ### Muuta
 - Käyttäjän antamien virheellisten syötteiden mahdollisuus on estetty.
 
+### Työn mahdolliset puutteet ja parannusehdotukset
+- Ei tunnettuja puutteita ohjelman toiminnassa määrittelyä vastaavalla tavalla.
+- Tällä hetkellä ohjelma kaatuu, mikäli dekryptausta varten annettu enkryptattu syöte on virheellisesti muu kuin kokonaisluku, joka enkryptatun syötteen tulisi olla.
+- Käyttöliittymää voisi aina parantaa!
+- Lisäksi vertaispalautteista poimittuja parannusehdotuksia:
+  - "Encryptatut viestit olisi kiva saada johonkin tekstitiedostoon talteen automaattisesti."
+  - "Omien luokkien nimeämisessä olisi suotavampaa käyttää niin sanottua CamelCase kirjoitustyyliä."
+
 ## Teoriaa:
 
 ### Ohjelman toiminta perustuu seuraaviin algoritmeihin:
