@@ -3,6 +3,10 @@
 [![workflow](https://github.com/Dhkj/Tiralabra/actions/workflows/main.yml/badge.svg)](https://github.com/Dhkj/Tiralabra/actions)
 [![codecov](https://codecov.io/gh/Dhkj/Tiralabra/branch/main/graph/badge.svg?token=GGQ60FH4C3)](https://codecov.io/gh/Dhkj/Tiralabra)
 
+## Release
+
+[Release 1.0.0](https://github.com/Dhkj/Tiralabra/releases/tag/v1.0.0)
+
 ## Dokumentaatio
 ### Ohjelman dokumentaatio:
 
