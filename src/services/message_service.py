@@ -1,7 +1,16 @@
 class Message_Service:
     '''Class for encrypting and decrypting a message.'''
     def encrypt_message(self, message, key):
-        '''Encrypts a message that is no greater than 40 unicode characters in length.'''
+        '''Encrypts a message that is no greater than 40 unicode characters in length.
+        
+        Args:
+            message: String message to be encrypted.
+            key: RSA encryption key
+
+        Returns:
+            The encrypted message as a 1024 bit integer.
+        
+        '''
         n = key[0]
         e = key[1]
 
@@ -9,7 +18,7 @@ class Message_Service:
         list_of_integer_unicode_characters_in_the_message = [ord(character) for character in list_of_characters_in_the_message]
         list_of_binary_unicode_characters_in_the_message = [bin(integer_unicode_character) for integer_unicode_character in list_of_integer_unicode_characters_in_the_message]
 
-        # Unicode encoded using 24 bits --> Filling of every character bit presentation to 24 bits:
+        # Assuming unicode characters encoded using 24 bits --> Filling of every character bit presentation to 24 bits:
         list_of_filled_binary_unicode_characters_in_the_message = [binary_unicode_character.split("b")[1].zfill(24) for binary_unicode_character in list_of_binary_unicode_characters_in_the_message]
 
         message_encoded_into_binary_number = "".join(list_of_filled_binary_unicode_characters_in_the_message)
@@ -19,7 +28,17 @@ class Message_Service:
         return encrypted_message
 
     def decrypt_message(self, message, key):
-        '''Decrypts a message.'''
+        '''Decrypts a message.
+        
+        Args:
+            message: String message to be encrypted.
+            key: RSA encryption key
+
+        Returns:
+            The encrypted message as a 1024 bit integer.
+        
+        
+        '''
         n = key[0]
         d = key[2]
 
@@ -55,9 +74,25 @@ class Message_Service:
         return decrypted_message
 
     def encrypt_character(self, char, n, e):
-        '''Encrypts a character. Returns a string containing the encrypted character.'''
+        '''Encrypts a character/an integer.
+
+        Args:
+            char: Character/integer to encrypt.
+            n, e: public RSA key
+        
+        Returns:
+            String containing the encrypted character/integer.
+        '''
         return str(pow(int(char), e, n))
 
     def decrypt_character(self, char, n, d):
-        '''Decrypts a character. Returns an integer of the unicode integer value of the decrypted character.'''
+        '''Decrypts a character/an integer.
+
+        Args:
+            char: Character/integer to decrypt.
+            n, d: private RSA key
+        
+        Returns:
+            Integer representing the decrypted set of characters.
+        '''
         return pow(int(char), d, n)

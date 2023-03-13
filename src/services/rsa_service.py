@@ -12,10 +12,16 @@ class RSA_Service:
         self._n, self._e, self._d = self.create_new_rsa_keypair()
 
     def create_new_rsa_keypair(self):
-        '''Creates a new rsa key pair and returns n, e, d for the generated key pair of the form: public key = (n, e), private key = d.'''
+        '''Creates a new rsa key pair.
+
+        Returns:
+            n, e, d for the generated key pair of the form: public key = (n, e), private key = d.
+        
+        '''
         e = 65537
 
         while True:
+            # Generate two large prime numbers coprime to e:
             while True:
                 p = self._algorithm_service.generate_potentially_large_random_prime_number()
 
@@ -35,9 +41,5 @@ class RSA_Service:
 
             if (e*d) % L == 1:
                 break
-
-            # Needed?
-            #if d < 0:
-            #    d = L + d
 
         return N, e, d

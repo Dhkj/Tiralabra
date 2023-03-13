@@ -4,13 +4,14 @@ from services.message_service import Message_Service
 from services.rsa_service import RSA_Service
 
 class TestRSA_Service(unittest.TestCase):
+    '''Test class for the generation of the RSA key pair.'''
     def setUp(self):
         self.algorithm_service = Algorithm_Service()
         self.message_service = Message_Service()
         self.rsa_service = RSA_Service(self.algorithm_service)
 
-    '''Tests encryption and decryption function correctly for a generated key pair.'''
     def test_rsa_key_pair_generation(self):
+        '''Tests encryption and decryption function correctly for a generated key pair.'''
         self.rsa_service.set_new_rsa_keypair()
         key = self.rsa_service.get_rsa_key()
 

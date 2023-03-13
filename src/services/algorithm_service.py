@@ -1,7 +1,7 @@
 import random
 
 class Algorithm_Service:
-    '''Class for the algorithms.'''
+    '''Class for the applied algorithms.'''
     def generate_potentially_large_random_prime_number(self):
         '''Generates and returns a large random potentially prime number.'''
         large_random_integer = random.randint(2**511, 2**512 - 1)
@@ -18,7 +18,10 @@ class Algorithm_Service:
 
     def miller_rabin(self, n, k):
         '''Miller-Rabin Primality Test. First parameter n is an integer to be tested, second parameter is the number of iterations.
-        Returns True if the integer n is potentially prime, False otherwise.'''
+        
+        Returns:
+            True if the integer n is potentially prime, False otherwise.
+        '''
         if n in (2, 3):
             return True
 
@@ -48,7 +51,15 @@ class Algorithm_Service:
         return True
 
     def extended_euclidean_algorithm(self, a, b, s0=1, s1=0, t0=0, t1=1):
-        '''The extended Euclidean algorithm. Returns a tuple with: [0]'the greatest common divisor' and [2]'the modular multiplicative inverse of the second parameter b.'''
+        '''The extended Euclidean algorithm.
+
+        Args:
+            a: First integer, greater than b.
+            b: Second integer.
+        
+        Returns:
+            Tuple containing: [0]'the greatest common divisor' and [2]'the modular multiplicative inverse of the second parameter b.
+        '''
         q = int(a / b)
         r = a - q * b
 

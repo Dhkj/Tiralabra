@@ -41,10 +41,14 @@ class UI:
     def encrypt_message(self):
         '''Encrypts a given input message and prints the encrypted message.'''
         input_message = self._console_io.read("Input message:")
-        key = self._rsa_service.get_rsa_key()
-        encrypted_message = self._message_service.encrypt_message(input_message, key)
-        self._console_io.print("\nEncrypted message:")
-        self._console_io.print(encrypted_message)
+
+        if len(input_message) > 40:
+            print("\nMaximum length of 40 characters for a message exceeded.\nPlease input a message no greater than 40 characters in length for encryption!")
+        else:
+            key = self._rsa_service.get_rsa_key()
+            encrypted_message = self._message_service.encrypt_message(input_message, key)
+            self._console_io.print("\nEncrypted message:")
+            self._console_io.print(encrypted_message)
 
     def decrypt_message(self):
         '''Decrypts a given input message and prints the decrypted message.'''
