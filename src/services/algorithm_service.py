@@ -18,7 +18,7 @@ class Algorithm_Service:
 
     def miller_rabin(self, n, k):
         '''Miller-Rabin Primality Test. First parameter n is an integer to be tested, second parameter is the number of iterations.
-        
+
         Returns:
             True if the integer n is potentially prime, False otherwise.
         '''
@@ -56,7 +56,7 @@ class Algorithm_Service:
         Args:
             a: First integer, greater than b.
             b: Second integer.
-        
+
         Returns:
             Tuple containing: [0]'the greatest common divisor' and [2]'the modular multiplicative inverse of the second parameter b.
         '''

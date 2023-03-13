@@ -2,14 +2,14 @@ class Message_Service:
     '''Class for encrypting and decrypting a message.'''
     def encrypt_message(self, message, key):
         '''Encrypts a message that is no greater than 40 unicode characters in length.
-        
+
         Args:
             message: String message to be encrypted.
             key: RSA encryption key
 
         Returns:
             The encrypted message as a 1024 bit integer.
-        
+
         '''
         n = key[0]
         e = key[1]
@@ -29,15 +29,15 @@ class Message_Service:
 
     def decrypt_message(self, message, key):
         '''Decrypts a message.
-        
+
         Args:
             message: String message to be encrypted.
             key: RSA encryption key
 
         Returns:
             The encrypted message as a 1024 bit integer.
-        
-        
+
+
         '''
         n = key[0]
         d = key[2]
@@ -79,7 +79,7 @@ class Message_Service:
         Args:
             char: Character/integer to encrypt.
             n, e: public RSA key
-        
+
         Returns:
             String containing the encrypted character/integer.
         '''
@@ -91,7 +91,7 @@ class Message_Service:
         Args:
             char: Character/integer to decrypt.
             n, d: private RSA key
-        
+
         Returns:
             Integer representing the decrypted set of characters.
         '''
